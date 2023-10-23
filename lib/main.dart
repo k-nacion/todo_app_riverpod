@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo_app/pages/homepage.dart';
 import 'package:todo_app/provider/config_provider.dart';
+import 'package:todo_app/screens/home_screen/home_screen.dart';
 
 void main() => runApp(const ProviderScope(child: MyApp()));
 
@@ -14,7 +14,7 @@ class MyApp extends ConsumerWidget {
       title: 'Todo App',
       debugShowCheckedModeBanner: false,
       theme: ref.watch(themeProvider),
-      home: const Homepage(),
+      home: const HomeScreen(),
     );
   }
 }
