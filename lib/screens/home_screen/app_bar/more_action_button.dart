@@ -11,23 +11,9 @@ class MoreActionButton extends ConsumerWidget {
     final todolistController = ref.watch(todoListProvider.notifier);
     final todolist = ref.watch(todoListProvider);
 
-//TODO: move this logic to its own provider. Separate the logic business to presentation.
     return PopupMenuButton(
       onSelected: (value) {
-        switch (value) {
-          case HomeMenu.markAllComplete:
-            {
-              for (final todo in todolist) {
-                todolistController.toggleComplete(todo.id, true);
-              }
-            }
-          case HomeMenu.clearCompleted:
-            {
-              for (final todo in todolist) {
-                todolistController.toggleComplete(todo.id, false);
-              }
-            }
-        }
+        todolistController.toggleAllTodos(value);
       },
       itemBuilder: (context) {
         return <PopupMenuEntry<HomeMenu>>[
