@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo_app/provider/todo_provider.dart';
+import 'package:todo_app/screens/home_screen/providers/filter_menu_provider.dart';
+import 'package:todo_app/screens/home_screen/providers/todos_provider.dart';
 
 class TodosPage extends ConsumerWidget {
   const TodosPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final todos = ref.watch(todoListProvider);
+    final filterMenu = ref.watch(filterMenuProvider);
+    final todos = ref.watch(dynamicTodosProvider(filterMenu));
 
     const separatorBuilder = SizedBox(
         height: 4,

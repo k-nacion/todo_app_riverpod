@@ -1,13 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo_app/provider/todo_provider.dart';
+import 'package:todo_app/screens/home_screen/providers/todos_provider.dart';
 
 final totalActiveTodosProvider = Provider<int>((ref) {
-  int totalActiveTodos = 0;
-  for (final todo in ref.watch(todoListProvider)) {
-    if (!todo.isCompleted) {
-      totalActiveTodos++;
-    }
-  }
-
-  return totalActiveTodos;
+  return ref.watch(activeTodosProvider).length;
 });
