@@ -27,9 +27,7 @@ class TodosPage extends ConsumerWidget {
             extentRatio: .2,
             children: [
               SlidableAction(
-                onPressed: (context) {
-                  ref.read(todoListProvider.notifier).removeTodo(todo.id);
-                },
+                onPressed: (context) => ref.read(todoListProvider.notifier).removeTodo(todo.id),
                 backgroundColor: Colors.red,
                 icon: Icons.delete,
               )
@@ -37,9 +35,7 @@ class TodosPage extends ConsumerWidget {
           ),
           child: CheckboxListTile(
             value: todo.isCompleted,
-            onChanged: (value) {
-              ref.read(todoListProvider.notifier).toggleComplete(todo.id);
-            },
+            onChanged: (value) => ref.read(todoListProvider.notifier).toggleComplete(todo.id),
             title: Text(
               todo.content,
               style:

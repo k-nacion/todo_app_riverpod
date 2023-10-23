@@ -19,13 +19,12 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: _createAppBar(context, ref),
-      // bottomNavigationBar:,
-      floatingActionButton: HomeFloatingActionButton(),
+      floatingActionButton: const HomeFloatingActionButton(),
+      bottomNavigationBar: const HomeBottomNavigationBar(),
       body: [
         const TodosPage(),
         const StatsPage(),
       ][selectedNavigationIndex],
-      bottomNavigationBar: const HomeBottomNavigationBar(),
     );
   }
 
